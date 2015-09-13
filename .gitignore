@@ -59,3 +59,4 @@ nbactions.xml
 nb-configuration.xml
 .nb-gradle/
 
+src/main/webapp/META-INF/context.xml
