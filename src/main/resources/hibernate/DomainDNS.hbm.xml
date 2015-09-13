@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.radusecrieru.dns.manager.domain.DomainDNS" table="DomainDNS">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="domainName" class="com.radusecrieru.dns.manager.domain.DomainName" fetch="select">
+            <column name="DomainID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="100" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="Type" length="20" not-null="true" />
+        </property>
+        <property name="value" type="string">
+            <column name="Value" length="100" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>
