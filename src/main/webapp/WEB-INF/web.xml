@@ -41,4 +41,9 @@
 	<servlet-name>jboss-as-kitchensink</servlet-name>
 	<url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  <filter>
+      <filter-name>corsFilter</filter-name>
+      <filter-class>com.radusecrieru.dns.manager.config.filter.CorsFilter</filter-class>
+  </filter>
 </web-app>
