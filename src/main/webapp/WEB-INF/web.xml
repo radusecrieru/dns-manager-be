@@ -46,4 +46,9 @@
       <filter-name>corsFilter</filter-name>
       <filter-class>com.radusecrieru.dns.manager.config.filter.CorsFilter</filter-class>
   </filter>
+  
+  <filter-mapping>
+      <filter-name>corsFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>
