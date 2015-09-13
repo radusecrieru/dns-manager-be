@@ -16,6 +16,6 @@
     
     <tx:annotation-driven />
     
-    <context:property-placeholder location="classpath:config/application-${spring.profiles.active}.properties" />
+    <context:property-placeholder location="${applicationPropertiesLocation}" />
 
 </beans>
