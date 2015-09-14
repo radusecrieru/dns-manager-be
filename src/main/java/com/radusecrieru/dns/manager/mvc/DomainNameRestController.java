@@ -36,7 +36,7 @@ public class DomainNameRestController {
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.POST, consumes = APPLICATION_JSON_VALUE,  produces = APPLICATION_JSON_VALUE)
-    public void lookupDomainNameById(@PathVariable("id") Long id, @RequestBody List<DomainDNS> domainDNSs) {
+    public @ResponseBody void addDNSEntriesToDomainName(@PathVariable("id") Long id, @RequestBody List<DomainDNS> domainDNSs) {
         domainNameDao.addDomainDNSs(id, domainDNSs);
     }
 }

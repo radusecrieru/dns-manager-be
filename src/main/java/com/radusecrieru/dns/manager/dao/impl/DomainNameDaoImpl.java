@@ -24,7 +24,7 @@ public class DomainNameDaoImpl implements DomainNameDao {
 
     @Override
     public List<DomainName> findAllOrderedByDomainName() {
-        return sessionFactory.getCurrentSession().createQuery("from DomainName order by domainName").list();
+        return sessionFactory.getCurrentSession().createQuery("select new DomainName(domainId, domainName) from DomainName order by domainName").list();
     }
 
     @Override
@@ -35,7 +35,9 @@ public class DomainNameDaoImpl implements DomainNameDao {
     @Override
     public void addDomainDNSs(Long id, List<DomainDNS> domainDNSs) {
         DomainName domainName = findById(id);
-        domainName.getDomainDNSs().addAll(domainDNSs);
-        sessionFactory.getCurrentSession().save(domainName);
+        for (DomainDNS domainDNS : domainDNSs) {
+            domainDNS.setDomainName(domainName);
+            sessionFactory.getCurrentSession().save(domainDNS);
+        }
     }
 }
